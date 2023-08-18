@@ -1,6 +1,6 @@
 <template>
-    <nav class="block mt-2">
-        <ul class="flex w-full bg-indigo-100 rounded">
+    <nav class="sticky block mt-2">
+        <ul class="flex w-full rounded shadow shadow-white bg-white/90 text-gray-950">
             <NavLink to="/#home" title="Home" />
             <NavLink to="/#skills" title="Skills" />
             <NavLink to="/#projects" title="Projects" />
@@ -8,10 +8,3 @@
         </ul>
     </nav>
 </template>
-
-<script>
-export default {
-    name: 'NavBar'
-    
-}
-</script>
