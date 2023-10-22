@@ -25,6 +25,6 @@ jobs:
           branch-suffix: timestamp
           delete-branch: true
           assignees: TraffordFewster
-          author: <github-actions[bot]@users.noreply.github.com>
+          author: GitHub <noreply@github.com>
 
 
