@@ -10,8 +10,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Update and store output file
-        run: npm update &> output.txt
+      - name: Update
+        run: echo "UPDATE_OUTPUT=$(npm update)" >> $GITHUB_ENV
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
@@ -22,7 +22,7 @@ jobs:
             Please review and merge if no issues are found.
             Output:
             ```
-            $(cat output.txt)
+            ${{ env.UPDATE_OUTPUT }}
             ```
           branch: updates/
           branch-suffix: timestamp
