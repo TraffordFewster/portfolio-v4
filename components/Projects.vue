@@ -104,10 +104,18 @@ const projects = [
             }
         ],
         image: '/img/projects/visit-peak-district.png'
+    },
+    {
+        title: 'Jungle Servers',
+        description: 'While growing up I developed a Garry\'s Mod server, this server ended up being quite popular peaking at around #8th globally.<br><br> Working on Jungle Servers got me interested in programming and started my leaning with there script which were built with Lua. I also learn\'t vital communication skills having to deal with players and staff on a daily basis.<br><br> I also learn\'t how to manage a server and how to keep it running smoothly with minimal downtime.',
+        links: [
+            {
+                label: 'Garry\'s Mod',
+                link: 'https://gmod.facepunch.com/'
+            },
+        ],
+        image: '/img/projects/jungleservers.webp'
     }
 ]
 let selectedProject = ref(projects[0])
-watch(selectedProject, () => {
-    document.getElementById('current-project').scrollIntoView({ behavior: 'smooth' })
-})
 </script>

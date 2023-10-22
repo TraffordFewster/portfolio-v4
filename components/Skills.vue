@@ -44,73 +44,78 @@
 const slides = [
     {
         label: 'HTML',
-        image: '/img/html5.svg',
+        image: '/img/icons/html5.svg',
         link: 'https://developer.mozilla.org/en-US/docs/Web/HTML'
     },
     {
         label: 'CSS',
-        image: '/img/css3.svg',
+        image: '/img/icons/css3.svg',
         link: 'https://developer.mozilla.org/en-US/docs/Web/CSS'
     },
     {
         label: 'JavaScript',
-        image: '/img/javascript.svg',
+        image: '/img/icons/javascript.svg',
         link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript'
     },
     {
         label: 'Vue',
-        image: '/img/vuejs.svg',
+        image: '/img/icons/vuejs.svg',
         link: 'https://vuejs.org/'
     },
     {
         label: 'Algolia',
-        image: '/img/algolia.svg',
+        image: '/img/icons/algolia.svg',
         link: 'https://www.algolia.com/'
     },
     {
         label: 'Tailwind',
-        image: '/img/tailwindcss.svg',
+        image: '/img/icons/tailwindcss.svg',
         link: 'https://tailwindcss.com/'
     },
     {
         label: 'Laravel',
-        image: '/img/laravel.svg',
+        image: '/img/icons/laravel.svg',
         link: 'https://laravel.com/'
     },
     {
         label: 'CraftCMS',
-        image: '/img/craftcms.svg',
+        image: '/img/icons/craftcms.svg',
         link: 'https://craftcms.com/'
     },
     {
         label: 'PHP',
-        image: '/img/php.svg',
+        image: '/img/icons/php.svg',
         link: 'https://www.php.net/'
     },
     {
         label: 'MySQL',
-        image: '/img/mysql.svg',
+        image: '/img/icons/mysql.svg',
         link: 'https://www.mysql.com/'
     },
     {
         label: 'Git',
-        image: '/img/git.svg',
+        image: '/img/icons/git.svg',
         link: 'https://git-scm.com/'
     },
     {
         label: 'GitHub',
-        image: '/img/github.svg',
+        image: '/img/icons/github.svg',
         link: 'https://github.com'
     },
     {
         label: 'Actions',
-        image: '/img/github.svg',
+        image: '/img/icons/github.svg',
         link: 'https://github.com/features/actions'
     },
     {
         label: 'AWS',
-        image: '/img/aws.svg',
+        image: '/img/icons/aws.svg',
         link: 'https://aws.amazon.com/'
+    },
+    {
+        label: 'Lua',
+        image: '/img/icons/lua.svg',
+        link: 'https://www.lua.org/'
     }
 ]
 </script>
