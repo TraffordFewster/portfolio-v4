@@ -34,7 +34,7 @@
         </div>
 
         <div class="flex items-center justify-center flex-1 p-4">
-            <img class="block object-cover rounded-full shadow-white ring-4 ring-white shadow w-[450px] h-[450px]" src="https://trafford.dev/_nuxt/img/portrait.e4eea00.webp" alt="Trafford Fewster" />
+            <img class="block object-cover rounded-full shadow-white ring-4 ring-white shadow w-[450px] h-[450px]" src="/img/portrait.webp" alt="Trafford Fewster" />
         </div>
     </div>
 
