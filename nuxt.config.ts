@@ -14,4 +14,9 @@ export default defineNuxtConfig({
     ],
     "vue3-carousel-nuxt",
   ],
+  app: {
+    head: {
+      title: "Trafford Fewster | Software Engineer",
+    }
+  }
 });
