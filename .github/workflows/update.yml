@@ -1,7 +1,7 @@
 name: Package Updates
 on:
   schedule:
-    - cron: '0 0 * * FRI'
+    - cron: '0 0 1 * *'
   workflow_dispatch:
 
 jobs:
