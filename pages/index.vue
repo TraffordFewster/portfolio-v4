@@ -4,7 +4,7 @@
             <div class="text-center md:p-8 md:rounded md:bg-white/90 md:shadow md:shadow-white">
                 <h1 class="text-5xl font-bold">Trafford Fewster</h1>
                 <h2 class="text-2xl">Full-Stack Developer</h2>
-                <h3 class="text-xl">Currently Working @ <a class="transition-colors border-b border-solid border-black/50 hover:border-black" href="https://destinationcore.com">DestinationCore</a></h3>
+                <h3 class="text-xl">Currently Working @ <a class="transition-colors border-b border-solid border-black/50 hover:border-black" href="https://www.payment-assist.co.uk/">Payment Assist</a></h3>
                 <ul class="flex justify-center gap-2 mt-2">
                     <li>
                         <a href="https://www.linkedin.com/in/trafford-fewster" target="_blank" title="LinkedIn">
