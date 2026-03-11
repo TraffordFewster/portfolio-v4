@@ -1,121 +1,93 @@
 <template>
-    <section id="projects" class="container flex flex-col mt-4 bg-white/90">
-        <h2 class="mt-4 text-3xl text-center">
-            Projects
-        </h2>
+  <section id="projects" class="space-y-12">
+    <div class="space-y-4">
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-zinc-100">Featured Projects</h2>
+      <p class="text-zinc-400 max-w-2xl">A selection of my recent work and personal projects.</p>
+    </div>
 
-        <div class="flex flex-col gap-2 px-2 py-4 md:flex-row">
-            <article class="flex-1 p-4 bg-white/50" id="current-project">
-                <h3 class="mt-2 text-2xl font-bold text-center">{{ selectedProject.title }}</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <article 
+        v-for="project in projects" 
+        :key="project.title"
+        class="group relative flex flex-col p-6 rounded-3xl border border-zinc-800 bg-zinc-900/50 hover:border-emerald-500/50 hover:bg-zinc-900 transition-all duration-300 shadow-sm overflow-hidden"
+      >
+        <div class="flex flex-col h-full gap-4">
+          <div class="space-y-2">
+            <h3 class="text-xl font-bold text-zinc-100 group-hover:text-emerald-400 transition-colors">
+              {{ project.title }}
+            </h3>
+            <p class="text-sm text-zinc-400 leading-relaxed line-clamp-4" v-html="project.description"></p>
+          </div>
 
-                <p v-html="selectedProject.description" class="my-4">
-                </p>
-
-                <ul v-if="selectedProject.links" class="flex flex-wrap gap-2">
-                    <li v-for="link in selectedProject.links">
-                        <a 
-                            :href="link.link"
-                            :target="link.target || '_blank'"
-                            class="border-b border-black border-solid hover:border-b-2"
-                        >
-                            {{ link.label }}
-                        </a>
-                    </li>
-                </ul>
-
-                <img v-if="selectedProject.image" :src="selectedProject.image" :alt="selectedProject.title" class="mt-4">
-
-            </article>
-
-            <div class="flex-1">
-                <ul class="flex flex-col gap-2">
-                    <li v-for="project in projects" class="flex flex-col gap-2 p-2 bg-white/50">
-                        <p class="text-xl text-center">{{ project.title }}</p>
-
-                        <button class="p-2 text-center bg-white shadow hover:underline" @click="selectedProject=project">
-                            Read About It!
-                        </button>
-                    </li>
-                </ul>
+          <div class="mt-auto space-y-4">
+            <div class="flex flex-wrap gap-2">
+              <span v-for="tag in project.tags" :key="tag" class="px-3 py-1 text-[10px] font-medium uppercase tracking-wider bg-zinc-800 text-zinc-400 rounded-full">
+                {{ tag }}
+              </span>
             </div>
+
+            <div v-if="project.links" class="flex flex-wrap gap-4 border-t border-zinc-800 pt-4">
+              <a 
+                v-for="link in project.links" 
+                :key="link.label"
+                :href="link.link"
+                target="_blank"
+                class="text-xs font-medium text-zinc-100 hover:text-emerald-400 flex items-center gap-1 transition-colors"
+              >
+                {{ link.label }}
+              </a>
+            </div>
+          </div>
         </div>
-    </section>
+      </article>
+    </div>
+  </section>
 </template>
 
 <script setup>
 const projects = [
     {
         title: 'DestinationCore Business Login',
-        description: 'While working at DestinationCore, I was tasked with remaking our business login solution. This was a CraftCMS plugin that was used to allow businesses to login to their website and manage their content.<br><br> There were many challenges along the way as the documentation for making Craft Plugins is not the best and required alot of reverse engineering to get it working.<br><br> The end result was an upgraded plugin that was alot more suitable for the business needs and was alot more user friendly.',
+        description: 'A custom CraftCMS plugin built for business owners to manage their content. Overcame documentation hurdles through reverse engineering, resulting in a user-friendly, robust solution.',
+        tags: ['CraftCMS', 'PHP', 'Plugin Development'],
         links: [
-            {
-                label: 'DestinationCore',
-                link: 'https://destinationcore.com'
-            },
-            {
-                label: 'CraftCMS',
-                link: 'https://craftcms.com'
-            }
+            { label: 'DestinationCore', link: 'https://destinationcore.com' },
+            { label: 'CraftCMS', link: 'https://craftcms.com' }
         ]
     },
     {
         title: 'Availability Search Engine',
-        description: 'While working at DestinationCore, I was tasked with maintaining and adding many features to the Availability Search Engine. This was a Laravel Project running on AWS Lambda which would reach out to many linked providers to get availability of properties and experiences for one of their sites such as Visit Peak District.<br><br> One of my first tasks on the project was to add property grouping, this was a feature that would allow properties to be grouped together so that they could be displayed as one property on the site. This was a very challenging task as it required me to learn how the system worked and modify the output to make properties sometimes from multiple providers look like they all was under one property.<br><br> I also added many other features such as policies to more connections and improved the performance with some agressive eagerloading.',
+        description: 'High-performance Laravel-based search engine running on AWS Lambda. Integrates multiple data providers to deliver real-time accommodation and experience availability.',
+        tags: ['Laravel', 'AWS Lambda', 'Elasticsearch'],
         links: [
-            {
-                label: 'Visit Peak District Accommodation Search',
-                link: 'https://www.visitpeakdistrict.com/business-directory/category/where-to-stay'
-            },
-            {
-                label: 'Visit Peak District Experiences',
-                link: 'https://www.visitpeakdistrict.com/experiences'
-            },
-            {
-                label: 'Visit York Accommodation Search',
-                link: 'https://www.visityork.org/business-directory/category/stay'
-            }
+            { label: 'Visit Peak District', link: 'https://www.visitpeakdistrict.com/business-directory/category/where-to-stay' },
+            { label: 'Visit York', link: 'https://www.visityork.org/business-directory/category/stay' }
         ]
     },
     {
         title: 'Availability Search Components',
-        description: 'While working at DestinationCore, I was tasked with creating a Vue Component Library that would be used to display the availability search results on the site. This was built using Vue & Vite along with multiple unit tests using Vitest.<br><br> The components are now used across all DestinationCore sites that use the Availability Search Engine for their accommodation and/or experiences.',
+        description: 'A modular Vue.js component library designed for high reusability across DestinationCore sites. Built with Vite and extensively tested using Vitest.',
+        tags: ['Vue 3', 'Vite', 'Vitest', 'Component Library'],
         links: [
-            {
-                label: 'Visit Peak District Accommodation Search',
-                link: 'https://www.visitpeakdistrict.com/business-directory/category/where-to-stay'
-            },
-            {
-                label: 'Visit Peak District Experiences',
-                link: 'https://www.visitpeakdistrict.com/experiences'
-            },
-            {
-                label: 'Visit York Accommodation Search',
-                link: 'https://www.visityork.org/business-directory/category/stay'
-            }
+            { label: 'View Live', link: 'https://www.visitpeakdistrict.com/experiences' }
         ]
     },
     {
         title: 'Visit Peak District Site Build',
-        description: 'While working at DestinationCore, I was tasked with building the Visit Peak District site along side 2 other developers as we had a very short deadline. We planned ahead early however splitting up tasks so we could all work at the same time with very little conflicts.<br><br> The site was built using primarily Craft CMS and Tailwind with some Vue components for more interactive parts. The site was built with a mobile first approach and was designed to be very easy to use for the end user.<br><br> I developed some of the fundamental parts of the site such as the card sections, the homepage hero and the search results powered by Algolia.',
+        description: 'Led the development of fundamental site sections for Visit Peak District. Implemented complex layouts using Craft CMS, Tailwind CSS, and Algolia for search.',
+        tags: ['Craft CMS', 'Tailwind CSS', 'Algolia'],
         links: [
-            {
-                label: 'Visit Peak District',
-                link: 'https://www.visitpeakdistrict.com'
-            }
-        ],
-        image: '/img/projects/visit-peak-district.png'
+            { label: 'Visit Peak District', link: 'https://www.visitpeakdistrict.com' }
+        ]
     },
     {
         title: 'Jungle Servers',
-        description: 'While growing up I developed a Garry\'s Mod server, this server ended up being quite popular peaking at around #8th globally.<br><br> Working on Jungle Servers got me interested in programming and started my leaning with there script which were built with Lua. I also learn\'t vital communication skills having to deal with players and staff on a daily basis.<br><br> I also learn\'t how to manage a server and how to keep it running smoothly with minimal downtime.',
+        description: 'A high-traffic Garry\'s Mod server community that peaked at #8 globally. Developed custom scripts in Lua and managed a large team of volunteers.',
+        tags: ['Lua', 'Community Management', 'Garry\'s Mod'],
         links: [
-            {
-                label: 'Garry\'s Mod',
-                link: 'https://gmod.facepunch.com/'
-            },
-        ],
-        image: '/img/projects/jungleservers.webp'
+            { label: 'Garry\'s Mod', link: 'https://gmod.facepunch.com/' }
+        ]
     }
 ]
-let selectedProject = ref(projects[0])
 </script>
+

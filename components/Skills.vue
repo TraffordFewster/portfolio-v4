@@ -1,43 +1,38 @@
 <template>
-    <section id="skills" class="container flex flex-col mt-4 bg-white/90">
-        <h2 class="mt-4 text-3xl text-center">
-            Skills
-        </h2>
+  <section id="skills" class="space-y-12">
+    <div class="space-y-4">
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-zinc-100">Technical Expertise</h2>
+      <p class="text-zinc-400 max-w-2xl">A collection of technologies and tools I use to bring ideas to life.</p>
+    </div>
 
-        <Carousel
-            :wrap-around="true"
-            :autoplay="1500"
-            :pause-autoplay-on-hover="true"
-            :items-to-show="3"
-            :breakpoints="{
-                480: {
-                    itemsToShow: 4
-                },
-                640: {
-                    itemsToShow: 6
-                },
-                768: {
-                    itemsToShow: 8
-                },
-                1024: {
-                    itemsToShow: 13
-                }
-            }"
-            class="py-4"
-        >
-            <Slide v-for="slide in slides" :key="slide" class="flex flex-col transition-transform hover:scale-105">
-                <a :href="slide.link" target="_blank">
-                    <img class="object-contain w-16 h-16 mx-auto" :src="slide.image" :alt="`${slide.label} Logo`">
+    <div class="p-8 rounded-3xl border border-zinc-800 bg-zinc-900/30 backdrop-blur-sm">
+      <Carousel
+        :wrap-around="true"
+        :autoplay="2000"
+        :pause-autoplay-on-hover="true"
+        :items-to-show="3"
+        :breakpoints="{
+          480: { itemsToShow: 4 },
+          640: { itemsToShow: 6 },
+          768: { itemsToShow: 8 },
+          1024: { itemsToShow: 10 }
+        }"
+      >
+        <Slide v-for="slide in slides" :key="slide.label" class="p-4">
+          <a :href="slide.link" target="_blank" class="flex flex-col items-center gap-3 group">
+            <div class="w-16 h-16 flex items-center justify-center rounded-2xl bg-zinc-800/50 group-hover:bg-zinc-700/50 group-hover:scale-110 transition-all duration-300">
+              <img class="w-10 h-10 object-contain grayscale group-hover:grayscale-0 transition-all" :src="slide.image" :alt="`${slide.label} Logo`">
+            </div>
+            <p class="text-xs font-medium text-zinc-500 group-hover:text-zinc-300 transition-colors uppercase tracking-widest">{{ slide.label }}</p>
+          </a>
+        </Slide>
 
-                    <p class="line-clamp-1">{{ slide.label }}</p>
-                </a>
-            </Slide>
-
-            <template #addons>
-                <Navigation />
-            </template>
-        </Carousel>
-    </section>
+        <template #addons>
+          <Navigation class="hidden sm:block" />
+        </template>
+      </Carousel>
+    </div>
+  </section>
 </template>
 
 <script setup>
@@ -119,3 +114,18 @@ const slides = [
     }
 ]
 </script>
+
+<style scoped>
+:deep(.carousel__prev),
+:deep(.carousel__next) {
+  @apply text-emerald-400/50 hover:text-emerald-400 transition-colors bg-zinc-800/50 rounded-full w-10 h-10 border border-zinc-700/50 backdrop-blur-sm;
+}
+
+:deep(.carousel__prev) {
+  @apply -left-4 sm:-left-6;
+}
+
+:deep(.carousel__next) {
+  @apply -right-4 sm:-right-6;
+}
+</style>

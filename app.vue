@@ -1,8 +1,7 @@
 <template>
-  <div class="absolute top-0 left-0 flex flex-col items-center w-full min-h-screen overflow-auto bg-gray-950 font-primary">
-    <div class="container">
+  <div class="min-h-screen bg-zinc-950 text-zinc-100 font-primary selection:bg-zinc-800 selection:text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <NavBar />
-
       <NuxtPage />
     </div>
   </div>
